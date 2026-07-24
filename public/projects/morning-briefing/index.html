@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Morning Briefing is Aaron Fine's self-hosted, auditable AI-assisted daily briefing pipeline."
+    >
+    <meta name="theme-color" content="#274f43">
+    <title>Morning Briefing · Our Fine Family</title>
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <header class="site-shell site-header">
+      <a class="brand" href="/" aria-label="Our Fine Family home">
+        <span class="brand-mark" aria-hidden="true">OF</span>
+        <span>Our Fine Family</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="/aaron/">Aaron</a>
+        <a href="/projects/" aria-current="page">Projects</a>
+        <a href="/analysis/">Analysis</a>
+      </nav>
+    </header>
+
+    <main class="site-shell">
+      <section class="page-intro">
+        <span class="status">In active development</span>
+        <p class="eyebrow">Featured project</p>
+        <h1>Morning Briefing</h1>
+        <p class="lede">
+          A self-hosted AI briefing pipeline designed to find what matters,
+          surface conflicting interpretations, and retain enough evidence to
+          examine how the final answer was produced.
+        </p>
+        <div class="button-row">
+          <a
+            class="button"
+            href="https://github.com/Aaron-Fine/morning-briefing"
+            >View the source on GitHub</a
+          >
+          <a class="button secondary" href="/projects/">All projects</a>
+        </div>
+      </section>
+
+      <div class="content-grid">
+        <article class="prose">
+          <h2>Why it exists</h2>
+          <p>
+            Ordinary news aggregation optimizes for collecting links. Ordinary
+            AI summarization compresses those links into fluent prose. Neither
+            necessarily catches missing coverage, source monocultures,
+            contradictory narratives, or assumptions that survive the first draft.
+          </p>
+          <p>
+            Morning Briefing treats the problem as a staged analytical system.
+            Collection, enrichment, domain analysis, adversarial review,
+            editorial synthesis, rendering, and behavioral monitoring are
+            separate operations with inspectable artifacts between them.
+          </p>
+
+          <h2>How it works</h2>
+          <ol class="steps">
+            <li>
+              <strong>Collect.</strong> Gather RSS, long-form analysis, video
+              transcripts, weather, markets, launch schedules, and local information.
+            </li>
+            <li>
+              <strong>Analyze.</strong> Route evidence to specialist desks rather
+              than asking one model pass to understand every domain at once.
+            </li>
+            <li>
+              <strong>Challenge.</strong> Search for contested narratives,
+              coverage gaps, unsupported assumptions, and important relationships
+              across domains.
+            </li>
+            <li>
+              <strong>Publish and observe.</strong> Assemble the briefing, record
+              stage outputs, and flag unusual source absence, topic skew, or
+              behavioral drift.
+            </li>
+          </ol>
+
+          <h2>Engineering priorities</h2>
+          <ul class="feature-list">
+            <li>
+              <strong>Explicit stages</strong>
+              Each transformation has a bounded responsibility.
+            </li>
+            <li>
+              <strong>Inspectable artifacts</strong>
+              Intermediate decisions survive the final prose.
+            </li>
+            <li>
+              <strong>Provider flexibility</strong>
+              Models are configuration choices rather than the system of record.
+            </li>
+            <li>
+              <strong>Behavioral checks</strong>
+              Quality includes drift, omissions, and source balance—not only syntax.
+            </li>
+          </ul>
+
+          <div class="note">
+            <strong>Publication boundary:</strong> the private daily digest is not
+            automatically public. Any future public edition will be produced by a
+            separate, allowlisted export that excludes personal configuration and
+            fetched source text.
+          </div>
+        </article>
+
+        <aside class="sidebar">
+          <h2>Project details</h2>
+          <ul>
+            <li><strong>Type:</strong> Self-hosted application</li>
+            <li><strong>Runtime:</strong> Python and Docker</li>
+            <li><strong>Interface:</strong> Static HTML email</li>
+            <li><strong>Focus:</strong> AI-assisted analysis</li>
+            <li><strong>Status:</strong> Preparing for public release</li>
+          </ul>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-shell footer-inner">
+        <p>A project by Aaron Fine.</p>
+        <div class="footer-links">
+          <a href="/projects/">Projects</a>
+          <a href="https://github.com/Aaron-Fine/morning-briefing">Repository</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
