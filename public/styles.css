@@ -640,6 +640,129 @@ main {
   overflow-wrap: anywhere;
 }
 
+.research-intro h1 {
+  max-width: 16ch;
+}
+
+.research-verdict {
+  margin-bottom: 4rem;
+  padding: clamp(1.4rem, 4vw, 2.2rem);
+  border: 1px solid rgba(39, 79, 67, 0.24);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(145deg, rgba(158, 180, 164, 0.2), rgba(255, 255, 255, 0.52));
+}
+
+.research-verdict h2 {
+  margin-top: 0;
+}
+
+.research-domain {
+  margin-top: 3.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+}
+
+.domain-heading {
+  display: grid;
+  justify-items: start;
+  gap: 0.8rem;
+}
+
+.domain-heading h3 {
+  max-width: 24ch;
+  margin: 0;
+  font-size: clamp(1.65rem, 3vw, 2.25rem);
+}
+
+.evidence-tag {
+  display: inline-flex;
+  padding: 0.24rem 0.58rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.tag-support {
+  color: var(--forest-deep);
+  background: rgba(158, 180, 164, 0.38);
+}
+
+.tag-mixed {
+  color: #71421a;
+  background: rgba(196, 123, 53, 0.18);
+}
+
+.tag-reconsider {
+  color: #7c2727;
+  background: rgba(165, 63, 63, 0.13);
+}
+
+.source-annotations {
+  display: grid;
+  margin: 1.4rem 0;
+  gap: 0.65rem;
+}
+
+.source-annotations p {
+  margin: 0;
+  padding: 0.85rem 1rem;
+  border-left: 3px solid var(--sage);
+  border-radius: 0 0.75rem 0.75rem 0;
+  background: rgba(255, 255, 255, 0.42);
+  font-size: 0.92rem;
+}
+
+.source-annotations a {
+  font-weight: 750;
+}
+
+.research-implication {
+  padding: 1rem 1.1rem;
+  border-radius: 0.85rem;
+  background: rgba(39, 79, 67, 0.08);
+}
+
+.revision-list {
+  display: grid;
+  margin: 2rem 0;
+  padding: 0;
+  gap: 0.8rem;
+  counter-reset: revision;
+  list-style: none;
+}
+
+.revision-list li {
+  position: relative;
+  padding: 1rem 1rem 1rem 3.8rem;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.42);
+  counter-increment: revision;
+}
+
+.revision-list li::before {
+  position: absolute;
+  top: 0.95rem;
+  left: 1rem;
+  display: grid;
+  width: 1.9rem;
+  height: 1.9rem;
+  place-items: center;
+  border-radius: 50%;
+  color: white;
+  background: var(--forest);
+  content: counter(revision);
+  font-size: 0.78rem;
+  font-weight: 850;
+}
+
+.agenda-list li + li {
+  margin-top: 0.65rem;
+}
+
 .sidebar a {
   color: inherit;
 }
