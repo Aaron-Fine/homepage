@@ -224,38 +224,27 @@ main {
   box-shadow: var(--shadow);
 }
 
-.portrait-card::before,
-.portrait-card::after {
-  position: absolute;
-  border-radius: 50%;
-  content: "";
-}
-
-.portrait-card::before {
-  top: -12%;
-  right: -25%;
-  width: 22rem;
-  height: 22rem;
-  border: 1px solid rgba(255, 255, 255, 0.34);
-}
-
-.portrait-card::after {
-  bottom: -16%;
-  left: -20%;
-  width: 18rem;
-  height: 18rem;
-  background: rgba(196, 123, 53, 0.32);
-}
-
-.portrait-monogram {
+.portrait-pair {
   position: absolute;
   inset: 0;
+}
+
+.portrait-pair {
   display: grid;
-  place-items: center;
-  color: rgba(255, 255, 255, 0.92);
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(5rem, 12vw, 9rem);
-  letter-spacing: -0.08em;
+  grid-template-columns: 1fr 1fr;
+  background: var(--forest);
+}
+
+.portrait-pair img {
+  width: 100%;
+  height: 100%;
+  min-height: 31rem;
+  object-fit: cover;
+  object-position: 50% 42%;
+}
+
+.portrait-pair img + img {
+  border-left: 2px solid rgba(255, 255, 255, 0.72);
 }
 
 .portrait-image {
@@ -526,6 +515,10 @@ main {
   }
 
   .portrait-image {
+    min-height: 24rem;
+  }
+
+  .portrait-pair img {
     min-height: 24rem;
   }
 

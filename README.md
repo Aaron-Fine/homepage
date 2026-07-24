@@ -31,14 +31,16 @@ because the domain is already managed there.
 Every push to `main` will deploy to production. Other branches and pull
 requests receive Cloudflare preview URLs.
 
-## Replacing the monogram with a photo
+## Replacing the separate portraits with a combined photo
 
 1. Export a landscape or square image as `public/assets/fine-family.webp`.
 2. Strip location metadata before committing it.
 3. In `public/index.html`, replace:
 
 ```html
-<div class="portrait-monogram" aria-hidden="true">AF</div>
+<div class="portrait-pair">
+  <!-- Aaron and Sarah image elements -->
+</div>
 ```
 
 with:
