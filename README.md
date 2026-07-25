@@ -63,8 +63,13 @@ The existing layout will size and crop the image automatically.
 public/
 ├── index.html
 ├── aaron/
+│   └── patents-and-engineering/
 ├── projects/
+│   ├── homelab/
+│   ├── mechanical-use-limiter/
 │   └── morning-briefing/
+├── writing/
+│   └── software-evaluation/
 ├── analysis/
 │   └── framework/
 ├── assets/

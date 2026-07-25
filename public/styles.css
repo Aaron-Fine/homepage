@@ -401,6 +401,10 @@ main {
   gap: 1rem;
 }
 
+.card-grid.two-column {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .card {
   display: flex;
   min-height: 18rem;
@@ -452,6 +456,10 @@ main {
   font-size: clamp(3rem, 6vw, 5.7rem);
 }
 
+.page-intro.compact {
+  padding-bottom: 2.5rem;
+}
+
 .content-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.45fr) minmax(16rem, 0.55fr);
@@ -485,6 +493,126 @@ main {
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(1.45rem, 3vw, 2rem);
   line-height: 1.35;
+}
+
+.prose > :first-child {
+  margin-top: 0;
+}
+
+.case-figure {
+  margin: 0 0 3rem;
+}
+
+.case-figure img {
+  width: 100%;
+  max-height: 34rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  object-fit: cover;
+  box-shadow: var(--small-shadow);
+}
+
+.case-figure figcaption {
+  max-width: 45rem;
+  margin-top: 0.7rem;
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.experience-list,
+.patent-list,
+.architecture-list {
+  display: grid;
+  margin: 2rem 0;
+  padding: 0;
+  gap: 1rem;
+  list-style: none;
+}
+
+.experience-list li,
+.patent-list li,
+.architecture-list li {
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: var(--surface-soft);
+}
+
+.experience-list strong,
+.architecture-list strong {
+  display: block;
+  margin-bottom: 0.3rem;
+  color: var(--ink);
+}
+
+.patent-list {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.patent-list li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.patent-list a {
+  font-weight: 800;
+}
+
+.patent-list span {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.fact-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 2rem 0 3rem;
+  gap: 1rem;
+}
+
+.fact-strip div {
+  padding: 1rem 1.1rem;
+  border-top: 3px solid var(--sage);
+  background: var(--surface-soft);
+}
+
+.fact-strip strong,
+.fact-strip span {
+  display: block;
+}
+
+.fact-strip strong {
+  color: var(--forest-deep);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.45rem;
+}
+
+.fact-strip span {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.article-meta {
+  margin-bottom: 2.5rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.article-meta strong {
+  color: var(--ink);
+}
+
+.boundary {
+  margin-block: 2.5rem;
+  padding: 1.2rem 1.3rem;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: var(--forest-wash);
+}
+
+.boundary p:last-child {
+  margin-bottom: 0;
 }
 
 .sidebar {
@@ -920,6 +1048,12 @@ main {
   }
 
   .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card-grid.two-column,
+  .patent-list,
+  .fact-strip {
     grid-template-columns: 1fr;
   }
 
