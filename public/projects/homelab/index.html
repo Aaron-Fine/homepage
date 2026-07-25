@@ -83,10 +83,10 @@
             </li>
             <li>
               <strong>Identity and credentials</strong>
-              Bitwarden holds human credentials. Authentik and OIDC are the
-              application identity direction, reducing separate credentials
-              without trying to make one identity system control every possible
-              recovery path.
+              Bitwarden holds human credentials. Centralized application
+              identity is deliberately deferred: the added operating and
+              recovery burden currently outweighs the benefit for this
+              private-access environment.
             </li>
             <li>
               <strong>Observable services</strong>
@@ -96,12 +96,21 @@
               wider metrics and logging stack supports diagnosis across hosts.
             </li>
             <li>
-              <strong>Portable configuration and off-site recovery</strong>
-              Gitea and Docker Compose support movement toward Git-managed
-              service configuration. Backrest is deployed as the operating
-              surface for restic-based backups, with off-site storage and
-              verified restores treated as separate requirements rather than
-              assumed consequences of having a scheduled job.
+              <strong>Version-controlled configuration</strong>
+              A nightly, allowlisted sync mirrors live configuration into
+              private Gitea for readable change history and disaster recovery.
+              Secret-bearing values are encrypted with SOPS and age, and a
+              gitleaks scan blocks commits when it detects plaintext secrets.
+              Databases, media, photos, logs, caches, and runtime state remain
+              outside this configuration mirror.
+            </li>
+            <li>
+              <strong>Layered recovery</strong>
+              Kopia sends multiversion backups to Backblaze B2 for long-term
+              off-site retention and major disaster recovery. Backrest keeps a
+              smaller, short-retention local copy for a faster nearby recovery
+              path. Small sets of files have been restored manually from both
+              systems.
             </li>
           </ul>
 
@@ -140,6 +149,23 @@
             </li>
           </ul>
 
+          <h2>Configuration is not a backup</h2>
+          <p>
+            The configuration repository is intentionally a one-way mirror from
+            the live system. It preserves reviewable service definitions,
+            selected Home Assistant state, device and automation configuration,
+            container templates, and the scripts that perform the sync. It does
+            not try to turn databases or user data into Git content.
+          </p>
+          <p>
+            That boundary keeps three recovery tools distinct: Git explains how
+            services were configured, the local backup provides a short and
+            convenient recovery path, and the off-site archive protects durable
+            data across more serious failures. Encryption and secret scanning
+            make useful diffs possible without treating a private repository as
+            permission to store credentials in plaintext.
+          </p>
+
           <h2>Lessons from consolidation</h2>
           <p>
             The most important architectural change was not adopting a new
@@ -160,13 +186,13 @@
           <h2>What is not finished</h2>
           <p>
             This is a working architecture, not a claim of completed operational
-            maturity. Backup coverage and restore drills need to be documented,
-            the Git-managed service inventory needs a clean public-safe view,
-            identity adoption is still uneven, and secrets management is moving
-            toward a more explicit machine-credential workflow. Existing
-            dashboards make system state visible; the next maturity step is
-            turning that visibility into tested recovery procedures and useful
-            alerts.
+            maturity. File-level restores from both backup paths have been
+            exercised, but broader restore drills and reconstruction timing still
+            need to be documented. Configuration coverage can expand where it
+            provides useful recovery value, and secret handling still needs
+            periodic review as new services are added. Existing dashboards make
+            system state visible; the next maturity step is turning that
+            visibility into tested recovery procedures and useful alerts.
           </p>
 
           <div class="boundary">
@@ -194,8 +220,8 @@
           </ul>
           <div class="sidebar-rule"></div>
           <p class="sidebar-small">
-            Status language is deliberate: “current,” “direction,” and
-            “remaining” distinguish deployed capability from intended architecture.
+            Status language is deliberate: deployed capability, tested evidence,
+            and remaining work are described separately.
           </p>
         </aside>
       </div>
