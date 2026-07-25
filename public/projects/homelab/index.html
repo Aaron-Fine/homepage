@@ -38,8 +38,9 @@
         <h1>Local infrastructure designed around recovery, not novelty</h1>
         <p class="lede">
           A family-scale environment for storage, media, home automation,
-          identity, development, observability, and local AI—consolidated around
-          systems that can be understood and recovered when something fails.
+          identity, development, observability, energy management, and local
+          AI—organized around systems that can be understood and recovered when
+          something fails.
         </p>
       </section>
 
@@ -63,10 +64,10 @@
           <ul class="architecture-list">
             <li>
               <strong>Stable consolidation host</strong>
-              Unraid provides storage and the primary container runtime. Work
-              that had been spread across a less reliable mini PC is being
-              consolidated so an auxiliary machine is not the sole control
-              point for critical jobs.
+              Unraid provides storage and the primary container runtime. A
+              separate firewall and an auxiliary Ubuntu host remain part of the
+              environment, but they are monitored as distinct systems rather
+              than allowed to become invisible dependencies.
             </li>
             <li>
               <strong>Containerized home automation</strong>
@@ -89,18 +90,31 @@
             </li>
             <li>
               <strong>Observable services</strong>
-              Prometheus, Grafana, and Loki provide the basis for metrics,
-              dashboards, and logs. Observability is being developed alongside
-              consolidation rather than treated as proof that silent failure has
-              already been eliminated.
+              Grafana dashboards cover host and container utilization, network
+              throughput, storage, temperatures, and household power flows.
+              Uptime Kuma provides service-level availability checks, while the
+              wider metrics and logging stack supports diagnosis across hosts.
             </li>
             <li>
               <strong>Portable configuration and off-site recovery</strong>
-              Docker Compose configuration is moving toward Git-managed source.
-              Restic with Backrest and Backblaze B2 form the backup direction,
-              with restore verification remaining the meaningful measure of completion.
+              Gitea and Docker Compose support movement toward Git-managed
+              service configuration. Backrest is deployed as the operating
+              surface for restic-based backups, with off-site storage and
+              verified restores treated as separate requirements rather than
+              assumed consequences of having a scheduled job.
             </li>
           </ul>
+
+          <h2>What it currently supports</h2>
+          <p>
+            The environment runs dozens of containerized services across several
+            practical domains: media and photo management, home automation,
+            network services, local development, file synchronization, local AI,
+            monitoring, backup, and solar-and-energy integration. The point is
+            not the size of the application list. It is that these services share
+            infrastructure while retaining observable responsibilities and
+            recoverable state boundaries.
+          </p>
 
           <h2>Design principles</h2>
           <ul class="feature-list">
@@ -130,9 +144,9 @@
           <p>
             The most important architectural change was not adopting a new
             platform. It was recognizing that a quiet, headless mini PC could
-            fail in ways that were easy to miss and therefore should not be the
-            sole scheduler or control point for backups and family-critical
-            services.
+            fail in ways that were easy to miss. It remains useful as auxiliary
+            compute, but should not be the sole scheduler or control point for
+            backups and family-critical services.
           </p>
           <p>
             The Home Assistant migration reinforced a related lesson: a service
@@ -149,7 +163,10 @@
             maturity. Backup coverage and restore drills need to be documented,
             the Git-managed service inventory needs a clean public-safe view,
             identity adoption is still uneven, and secrets management is moving
-            toward a more explicit machine-credential workflow.
+            toward a more explicit machine-credential workflow. Existing
+            dashboards make system state visible; the next maturity step is
+            turning that visibility into tested recovery procedures and useful
+            alerts.
           </p>
 
           <div class="boundary">
