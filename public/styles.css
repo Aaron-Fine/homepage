@@ -16,8 +16,8 @@
   --forest-wash: rgba(39, 79, 67, 0.08);
   --sage: #9eb4a4;
   --sage-wash: rgba(158, 180, 164, 0.38);
-  --ochre: #c47b35;
-  --ochre-wash: rgba(196, 123, 53, 0.18);
+  --ochre: #9d5d22;
+  --ochre-wash: rgba(157, 93, 34, 0.18);
   --neutral-wash: rgba(63, 75, 70, 0.12);
   --warning-ink: #71421a;
   --danger: #a53f3f;
@@ -460,6 +460,25 @@ main {
   padding-bottom: 2.5rem;
 }
 
+.profile-intro {
+  max-width: 68rem;
+  padding-block: 2rem 2.75rem;
+}
+
+.profile-intro h1 {
+  max-width: 18ch;
+  margin-bottom: 1.1rem;
+  font-size: clamp(2.8rem, 5.4vw, 5.2rem);
+}
+
+.profile-intro .lede {
+  max-width: 47rem;
+}
+
+.profile-intro .button-row {
+  margin-top: 1.5rem;
+}
+
 .content-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.45fr) minmax(16rem, 0.55fr);
@@ -593,6 +612,29 @@ main {
   font-size: 0.85rem;
 }
 
+.fact-strip.profile-facts {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 1.75rem 0;
+  padding: 0;
+}
+
+.profile-facts div {
+  min-height: 6.5rem;
+}
+
+.profile-facts dt {
+  color: var(--forest-deep);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.profile-facts dd {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
 .article-meta {
   margin-bottom: 2.5rem;
   color: var(--muted);
@@ -613,6 +655,15 @@ main {
 
 .boundary p:last-child {
   margin-bottom: 0;
+}
+
+.boundary-note {
+  margin: 0;
+  padding: clamp(1.4rem, 3vw, 2rem);
+}
+
+.boundary-note h3 {
+  margin-bottom: 0.75rem;
 }
 
 .sidebar {
@@ -1057,6 +1108,10 @@ main {
     grid-template-columns: 1fr;
   }
 
+  .fact-strip.profile-facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .ledger-scorecard,
   .forecast-grid {
     grid-template-columns: 1fr;
@@ -1100,6 +1155,10 @@ main {
   }
 
   .feature-list {
+    grid-template-columns: 1fr;
+  }
+
+  .fact-strip.profile-facts {
     grid-template-columns: 1fr;
   }
 }
