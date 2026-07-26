@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Mechanical Use Limiter: a multidisciplinary medical-device product engineering case study by Aaron Fine."
+    >
+    <meta name="theme-color" content="#274f43">
+    <title>Mechanical Use Limiter · Our Fine Family</title>
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+    <script src="/theme.js?v=20260724-2"></script>
+    <link rel="stylesheet" href="/styles.css?v=20260724-2">
+  </head>
+  <body>
+    <header class="site-shell site-header">
+      <a class="brand" href="/" aria-label="Our Fine Family home">
+        <span class="brand-mark" aria-hidden="true">OF</span>
+        <span>Our Fine Family</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="/aaron/">Aaron</a>
+        <a href="/projects/" aria-current="page">Projects</a>
+        <a href="/writing/">Writing</a>
+        <a href="/analysis/">Analysis</a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to dark mode">
+          <span class="theme-toggle-icon" aria-hidden="true"></span>
+          <span class="theme-toggle-label">Dark</span>
+        </button>
+      </nav>
+    </header>
+
+    <main class="site-shell">
+      <section class="page-intro compact">
+        <span class="card-kicker">Completed product engineering</span>
+        <p class="eyebrow">Mechanical Use Limiter</p>
+        <h1>A mechanical state machine for a disposable medical device</h1>
+        <p class="lede">
+          A small electromechanical device that counted connector insertions and
+          changed an identification circuit after the permitted number of uses—
+          without relying on semiconductor memory.
+        </p>
+      </section>
+
+      <figure class="case-figure">
+        <img
+          src="/assets/mechanical-use-limiter.webp"
+          alt="Mechanical use limiter components installed on small printed circuit boards"
+          width="647"
+          height="388"
+        >
+        <figcaption>
+          Production versions of the mechanical use limiter mounted to printed
+          circuit boards. The black molded component contains the indexing mechanism.
+        </figcaption>
+      </figure>
+
+      <div class="fact-strip">
+        <div>
+          <strong>Mechanical</strong>
+          <span>Counted uses without semiconductor memory</span>
+        </div>
+        <div>
+          <strong>Sterilizable</strong>
+          <span>Designed around E-beam and ethylene-oxide constraints</span>
+        </div>
+        <div>
+          <strong>Manufacturable</strong>
+          <span>Low part cost and simple integration into existing products</span>
+        </div>
+      </div>
+
+      <div class="content-grid">
+        <article class="prose">
+          <h2>The problem</h2>
+          <p>
+            Some disposable medical devices cannot be safely cleaned and reused,
+            yet the devices and their supporting equipment create a strong
+            economic incentive to try. The customer wanted the host equipment to
+            reject a disposable device after a small, predetermined number of
+            connector insertions.
+          </p>
+          <p>
+            Conventional electronic counters were a poor fit because the device
+            had to tolerate sterilization processes that could damage
+            semiconductor memory. The available space was extremely limited,
+            and the solution needed to integrate into connector products already
+            moving through established assembly and cleaning processes.
+          </p>
+
+          <h2>The system concept</h2>
+          <p>
+            The host equipment already measured an identification value to
+            determine which disposable device had been connected. The solution
+            was therefore mechanical in state but electrical at the interface:
+            each insertion advanced a spring through a molded indexing track.
+            After the allowed number of cycles, the mechanism changed the
+            identification circuit to an invalid value, causing the host to
+            reject the device.
+          </p>
+
+          <h2>Constraints drove the design</h2>
+          <ul class="experience-list">
+            <li>
+              <strong>Variable connector engagement</strong>
+              The mechanism had to trigger with very shallow engagement while
+              surviving the full tolerance range of several mating connector systems.
+            </li>
+            <li>
+              <strong>Sterilization compatibility</strong>
+              Materials and operation had to remain compatible with radiation
+              and chemical sterilization rather than rely on vulnerable electronics.
+            </li>
+            <li>
+              <strong>Miniature features</strong>
+              Small mechanical elements still had to retain enough strength,
+              resolution, and repeatability to mold and assemble reliably.
+            </li>
+            <li>
+              <strong>Existing manufacturing</strong>
+              Installation, soldering, and cleaning needed to fit an established
+              connector platform without creating an expensive new process.
+            </li>
+          </ul>
+
+          <h2>Design and manufacture</h2>
+          <p>
+            The body was injection molded from glass-filled liquid-crystal
+            polymer, selected for fine feature reproduction, thermal resistance,
+            dimensional stability, low moisture absorption, and compatibility
+            with the required sterilization environment. A gold-plated
+            beryllium-copper spring provided both bias and indexed electrical
+            contact.
+          </p>
+          <p>
+            Assembly remained intentionally simple: insert the spring, install
+            the plunger, wind and trim the spring, place the completed mechanism
+            over carrier pins, and retain it during the connector’s existing
+            soldering operation. The retaining method was chosen through
+            testing, not appearance, and avoided adding a separate adhesive or
+            cleaning process.
+          </p>
+
+          <h2>Outcome</h2>
+          <p>
+            The final design met its functional and manufacturing objectives,
+            was adopted across multiple related product lines, and became the
+            basis for a family of issued patents. More importantly, it solved
+            the entire problem: sensing a physical use, retaining state through
+            sterilization, communicating that state through an existing
+            electrical interface, and remaining economical to manufacture.
+          </p>
+
+          <div class="boundary">
+            <h3>Why it still belongs in this portfolio</h3>
+            <p>
+              The technologies are different from my current software work, but
+              the systems problem is familiar: understand the real operating
+              environment, identify the existing interface that can carry
+              authority, design for failure and variation, and make the result
+              buildable by someone other than its inventor.
+            </p>
+          </div>
+        </article>
+
+        <aside class="sidebar">
+          <h2>Engineering disciplines</h2>
+          <ul>
+            <li>Requirements and tolerance analysis</li>
+            <li>Mechanical state and electrical signaling</li>
+            <li>Materials selection</li>
+            <li>Injection molding</li>
+            <li>Assembly-process design</li>
+            <li>Verification through physical testing</li>
+            <li>Patent development</li>
+          </ul>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-shell footer-inner">
+        <p>A mechanical engineering project by Aaron Fine.</p>
+        <div class="footer-links">
+          <a href="/projects/">Projects</a>
+          <a href="/aaron/patents-and-engineering/">Patents</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

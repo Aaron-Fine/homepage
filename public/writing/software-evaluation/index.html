@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Aaron Fine's evidence-driven methodology for evaluating an unfamiliar software system."
+    >
+    <meta name="theme-color" content="#274f43">
+    <title>Evaluating an Unfamiliar Software System · Our Fine Family</title>
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+    <script src="/theme.js?v=20260724-2"></script>
+    <link rel="stylesheet" href="/styles.css?v=20260724-2">
+  </head>
+  <body>
+    <header class="site-shell site-header">
+      <a class="brand" href="/" aria-label="Our Fine Family home">
+        <span class="brand-mark" aria-hidden="true">OF</span>
+        <span>Our Fine Family</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="/aaron/">Aaron</a>
+        <a href="/projects/">Projects</a>
+        <a href="/writing/" aria-current="page">Writing</a>
+        <a href="/analysis/">Analysis</a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to dark mode">
+          <span class="theme-toggle-icon" aria-hidden="true"></span>
+          <span class="theme-toggle-label">Dark</span>
+        </button>
+      </nav>
+    </header>
+
+    <main class="site-shell">
+      <section class="page-intro compact">
+        <p class="eyebrow">Software assurance</p>
+        <h1>How I evaluate an unfamiliar software system</h1>
+        <p class="lede">
+          A repeatable path from delivered artifacts and documentation to
+          defensible findings about what a system actually does, how confidently
+          it is understood, and what should happen next.
+        </p>
+      </section>
+
+      <div class="content-grid">
+        <article class="prose">
+          <p class="article-meta">
+            <strong>By Aaron Fine</strong> · A general professional methodology
+            based on experience evaluating software-intensive systems.
+          </p>
+
+          <p>
+            Evaluating unfamiliar software is not the same as performing a code
+            review, running a scanner, or following an installation guide. Each
+            reveals something useful, but none is sufficient by itself. The real
+            task is to build an evidence-backed understanding of a system while
+            preserving the distinction between what was delivered, what was
+            documented, what was observed, and what was inferred.
+          </p>
+          <p>
+            Those observations have meaning only in context. The system must be
+            judged against the mission it is intended to accomplish, the written
+            requirements that govern it, and the maturity expected at that point
+            in its lifecycle.
+          </p>
+
+          <blockquote>
+            The goal is not to prove that software is good or bad. It is to make
+            its demonstrated capabilities, risks, uncertainties, and ownership
+            burden visible enough to support a decision.
+          </blockquote>
+
+          <h2>1. Define the decision before collecting evidence</h2>
+          <p>
+            An evaluation should begin with the decision it is meant to inform.
+            A source-selection assessment, technical-baseline review, onboarding
+            exercise, operational-readiness check, and modernization study can
+            examine the same repository and reasonably emphasize different
+            evidence.
+          </p>
+          <p>
+            I establish the evaluation boundary, representative workflows,
+            applicable requirements, current and expected maturity, required
+            environments, expected outputs, and the confidence needed for the
+            decision. A limitation that is normal and manageable during early
+            development may be unacceptable when the same system is presented
+            for operational acceptance. I also record explicit exclusions.
+            Without that frame, teams tend to collect large quantities of
+            technically interesting information that never resolves the actual
+            question.
+          </p>
+
+          <h2>2. Establish provenance and inventory the delivery</h2>
+          <p>
+            Before changing anything, preserve what arrived. Record versions,
+            manifests, hashes, repository state, build artifacts, configuration,
+            dependency declarations, documentation, and supplied test data.
+            Confirm that the expected delivery is present and internally
+            consistent.
+          </p>
+          <p>
+            This is more than administrative hygiene. If the delivered source,
+            documentation, binaries, deployment scripts, and version labels do
+            not agree, every later result needs that qualification. Provenance
+            is the foundation for reproducibility and for maintaining a
+            government- or customer-owned technical baseline.
+          </p>
+
+          <h2>3. Treat onboarding as an engineering test</h2>
+          <p>
+            Follow the supplied instructions in a controlled environment before
+            relying on expert intuition to repair them. Record ambiguous steps,
+            missing dependencies, incorrect paths, stale configuration,
+            environment assumptions, and manual knowledge supplied outside the
+            documentation.
+          </p>
+          <p>
+            Necessary corrections should be small, explicit, and reversible.
+            The resulting deviation log is an evaluation artifact: it measures
+            how much undocumented expertise is required before the software can
+            be operated by someone other than its original developers.
+          </p>
+
+          <h2>4. Run a representative thread through the system</h2>
+          <p>
+            A successful build or deployment does not demonstrate useful system
+            behavior. Select a known data set or operationally representative
+            scenario and trace it through the system. Identify the inputs,
+            transformations, interfaces, state changes, outputs, and expected
+            observables before execution.
+          </p>
+          <p>
+            The thread should be large enough to cross meaningful architectural
+            boundaries but controlled enough that unexpected behavior can be
+            investigated. When possible, include a normal path, an invalid or
+            degraded input, and a recovery path.
+          </p>
+
+          <h2>5. Use logs and data flow to reconcile claims with behavior</h2>
+          <p>
+            Observe what each application or service produces, consumes, and
+            reports. Compare logs, messages, stored data, user-visible output,
+            and interface behavior against documentation and the expected
+            scenario.
+          </p>
+          <p>
+            This often reveals configuration errors, undocumented dependencies,
+            silent fallback behavior, interface mismatches, brittle ordering,
+            weak error handling, or features that technically execute without
+            producing a trustworthy result. Troubleshooting these discrepancies
+            is part of the evaluation because it exposes the system’s real
+            operational model.
+          </p>
+
+          <h2>6. Use automated analysis as instrumentation</h2>
+          <p>
+            Static analysis, dependency inspection, test results, complexity
+            metrics, security scanners, and build warnings can efficiently
+            identify areas that deserve attention. They are sensors, not
+            verdicts. Tool findings must be interpreted in the context of the
+            language, architecture, mission, written requirements, expected
+            maturity, generated code, accepted risk, and actual execution.
+          </p>
+          <p>
+            I look for convergence. A warning becomes more meaningful when it
+            aligns with a failed workflow, weak test boundary, recurring defect,
+            confusing implementation, or documented technical debt.
+          </p>
+
+          <h2>7. Review representative code by risk</h2>
+          <p>
+            Exhaustive manual review is rarely possible for a substantial
+            codebase. Sampling should therefore be deliberate. Useful targets
+            include critical data paths, interface boundaries, state machines,
+            error and recovery handling, security-sensitive code, configuration
+            loading, unusually complex modules, generated-code boundaries, and
+            areas implicated by runtime or automated findings.
+          </p>
+          <p>
+            The aim is not to impose personal style preferences. It is to assess
+            whether important behavior can be understood, changed, tested, and
+            operated without unacceptable hidden knowledge or fragility.
+          </p>
+
+          <h2>8. Test documented features from the user’s perspective</h2>
+          <p>
+            Newly delivered or materially changed features should be exercised
+            as documented. Confirm that the workflow is discoverable, the
+            interface communicates state and failure, and the result is
+            representative—not merely that a control exists or a request
+            returns successfully.
+          </p>
+          <p>
+            User-interface feedback belongs in a software evaluation when the
+            interface affects correct operation, diagnosis, recovery, or trust.
+          </p>
+
+          <h2>9. Separate findings from uncertainty</h2>
+          <p>
+            A useful report distinguishes demonstrated defects, documentation
+            gaps, technical debt, operational risks, maintainability concerns,
+            and unresolved questions. Each finding should state the evidence,
+            conditions, likely impact, confidence, and a proportionate
+            recommendation.
+          </p>
+          <p>
+            This prevents two common errors: presenting uncertainty as a defect,
+            and allowing the absence of evidence to become evidence of
+            acceptability.
+          </p>
+
+          <h2>10. Produce an actionable technical record</h2>
+          <p>
+            The final report should make it possible for decision-makers and
+            developers to act without reconstructing the entire evaluation. It
+            should preserve enough detail to reproduce significant observations
+            while remaining clear about scope and confidence.
+          </p>
+          <p>
+            Good findings are specific enough to verify and flexible enough to
+            let the responsible engineering team choose an appropriate
+            implementation. The objective is shared technical understanding,
+            not a rhetorical victory.
+          </p>
+
+          <div class="boundary">
+            <h3>Public boundary</h3>
+            <p>
+              This methodology intentionally omits customer data, contractor
+              findings, nonpublic architectures, program-specific evaluation
+              criteria, and operational details. It describes a reusable
+              engineering practice rather than any particular assessment.
+            </p>
+          </div>
+        </article>
+
+        <aside class="sidebar">
+          <h2>Evaluation sequence</h2>
+          <ul>
+            <li>Define the decision</li>
+            <li>Verify provenance</li>
+            <li>Test onboarding</li>
+            <li>Execute a representative thread</li>
+            <li>Trace logs and data flow</li>
+            <li>Apply automated analysis</li>
+            <li>Review code by risk</li>
+            <li>Exercise documented features</li>
+            <li>Classify evidence and uncertainty</li>
+            <li>Report actionable findings</li>
+          </ul>
+          <div class="sidebar-rule"></div>
+          <p class="sidebar-small">
+            Documentation, code, configuration, execution, and operator
+            experience are separate evidence sources. Confidence comes from
+            reconciling them.
+          </p>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-shell footer-inner">
+        <p>Public methodology. Views are personal.</p>
+        <div class="footer-links">
+          <a href="/writing/">Writing</a>
+          <a href="/aaron/">Aaron</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

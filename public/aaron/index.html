@@ -1,17 +1,17 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta
       name="description"
-      content="Aaron Fine is a systems engineer with a software engineering background focused on practical, inspectable systems."
+      content="Aaron Fine is a senior systems engineer with a software engineering background focused on software assurance, technical leadership, and practical, inspectable systems."
     >
     <meta name="theme-color" content="#274f43">
     <title>Aaron Fine · Our Fine Family</title>
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-    <script src="/theme.js?v=20260724-1"></script>
-    <link rel="stylesheet" href="/styles.css?v=20260724-1">
+    <script src="/theme.js?v=20260724-2"></script>
+    <link rel="stylesheet" href="/styles.css?v=20260724-2">
   </head>
   <body>
     <header class="site-shell site-header">
@@ -22,6 +22,7 @@
       <nav class="site-nav" aria-label="Primary navigation">
         <a href="/aaron/" aria-current="page">Aaron</a>
         <a href="/projects/">Projects</a>
+        <a href="/writing/">Writing</a>
         <a href="/analysis/">Analysis</a>
         <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to dark mode">
           <span class="theme-toggle-icon" aria-hidden="true"></span>
@@ -33,15 +34,70 @@
     <main class="site-shell">
       <section class="page-intro">
         <p class="eyebrow">Aaron Fine</p>
-        <h1>Systems engineering for software, infrastructure, and AI-assisted work.</h1>
+        <h1>Systems engineering grounded in building real software.</h1>
         <p class="lede">
-          I’m a systems engineer with a software engineering background. I build
-          practical, inspectable systems and explore how AI can support serious
-          analysis without hiding assumptions, provenance, or human judgment.
+          I’m a senior systems engineer with a software engineering background.
+          I work at the boundary between architecture, implementation, evidence,
+          and technical decision-making—especially where complex software must
+          remain understandable to the people responsible for it.
         </p>
         <div class="button-row">
-          <a class="button" href="https://github.com/Aaron-Fine">GitHub profile</a>
-          <a class="button secondary" href="/projects/">Selected projects</a>
+          <a class="button" href="/projects/">Selected projects</a>
+          <a class="button secondary" href="/writing/">Writing</a>
+          <a class="button secondary" href="mailto:hello@ourfinefamily.com">Email Aaron</a>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="professional-heading">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Professional work</p>
+            <h2 id="professional-heading">From implementation to technical leadership</h2>
+            <p>
+              I joined Space Dynamics Laboratory as a student, completed its
+              Student Scholar program, and joined the full-time staff as a
+              software engineer after earning my computer science degree in
+              2019. I now provide systems engineering and technical leadership
+              for software-intensive national-security work.
+            </p>
+          </div>
+        </div>
+
+        <div class="content-grid">
+          <article class="prose">
+            <p>
+              My current work centers on technical-baseline stewardship,
+              independent software evaluation, design-review support, and
+              translating technical evidence into useful recommendations for
+              government and industry teams. The recurring questions are
+              practical ones: Can the delivered system be built and operated?
+              Does its behavior match its documentation? Are interfaces,
+              assumptions, risks, and technical debt understood well enough to
+              make responsible decisions?
+            </p>
+            <p>
+              Earlier roles kept me close to implementation. I developed
+              simulation, visualization, networking, logging, state-management,
+              and control software using C++, Qt, MATLAB, containers, and CI/CD.
+              That background continues to shape how I approach systems
+              engineering: architecture claims should eventually meet testable,
+              maintainable code, configuration, documentation, data, logs,
+              operators, and failure. Observability is part of the system, not
+              an afterthought.
+            </p>
+          </article>
+
+          <aside class="sidebar">
+            <h2>Practice areas</h2>
+            <ul>
+              <li>Systems engineering and MBSE</li>
+              <li>Mission software assurance</li>
+              <li>Technical baseline stewardship</li>
+              <li>Independent software evaluation</li>
+              <li>Design and technical reviews</li>
+              <li>Technical leadership</li>
+            </ul>
+          </aside>
         </div>
       </section>
 
@@ -59,30 +115,33 @@
 
         <div class="card-grid">
           <article class="card">
-            <span class="card-kicker">Systems</span>
-            <h3>AI-assisted engineering</h3>
+            <span class="card-kicker">Assurance</span>
+            <h3>Software that can be examined</h3>
             <p>
-              Agent workflows, explicit control boundaries, durable context,
-              human approval, and evaluations that make automation accountable.
+              Technical baselines, evidence-driven evaluation, meaningful
+              documentation, observable behavior, and actionable findings.
             </p>
+            <a class="card-link" href="/writing/software-evaluation/">Evaluation method →</a>
           </article>
 
           <article class="card">
-            <span class="card-kicker">Software</span>
-            <h3>Infrastructure and self-hosting</h3>
+            <span class="card-kicker">Engineering breadth</span>
+            <h3>Hardware, software, and operations</h3>
             <p>
-              Maintainable services, open systems, local control, sensible
-              security, and architectures that remain operable after the novelty fades.
+              Product development, simulation, networking, embedded interfaces,
+              containers, infrastructure, manufacturing, and technical writing.
             </p>
+            <a class="card-link" href="/aaron/patents-and-engineering/">Patents and earlier work →</a>
           </article>
 
           <article class="card">
-            <span class="card-kicker">Analysis</span>
-            <h3>Reasoning under uncertainty</h3>
+            <span class="card-kicker">AI-assisted work</span>
+            <h3>Accountable automation</h3>
             <p>
-              Competing explanations, scenario maps, explicit probabilities,
-              adversarial review, and honest scorekeeping when predictions fail.
+              Explicit control boundaries, durable context, human approval,
+              inspectable artifacts, and evaluation beyond fluent output.
             </p>
+            <a class="card-link" href="/projects/morning-briefing/">Morning Briefing →</a>
           </article>
         </div>
       </section>

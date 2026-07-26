@@ -1,17 +1,17 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta
       name="description"
-      content="Selected software, infrastructure, and AI-assisted systems projects by Aaron Fine."
+      content="Selected software, systems, infrastructure, and multidisciplinary engineering projects by Aaron Fine."
     >
     <meta name="theme-color" content="#274f43">
     <title>Projects · Our Fine Family</title>
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-    <script src="/theme.js?v=20260724-1"></script>
-    <link rel="stylesheet" href="/styles.css?v=20260724-1">
+    <script src="/theme.js?v=20260724-2"></script>
+    <link rel="stylesheet" href="/styles.css?v=20260724-2">
   </head>
   <body>
     <header class="site-shell site-header">
@@ -22,6 +22,7 @@
       <nav class="site-nav" aria-label="Primary navigation">
         <a href="/aaron/">Aaron</a>
         <a href="/projects/" aria-current="page">Projects</a>
+        <a href="/writing/">Writing</a>
         <a href="/analysis/">Analysis</a>
         <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to dark mode">
           <span class="theme-toggle-icon" aria-hidden="true"></span>
@@ -44,7 +45,7 @@
         <div class="section-heading">
           <div>
             <h2 id="project-heading">Featured work</h2>
-            <p>One substantial project today, with room to grow later.</p>
+            <p>Current software, completed product engineering, and a working systems architecture.</p>
           </div>
         </div>
 
@@ -63,12 +64,58 @@
           </article>
 
           <article class="card">
-            <span class="card-kicker">Next</span>
-            <h3>Additional case studies</h3>
+            <span class="card-kicker">Completed product</span>
+            <h3>Mechanical Use Limiter</h3>
             <p>
-              Homelab architecture, AI governance patterns, and other software
-              projects will be added selectively as their documentation matures.
+              A miniature mechanical state machine designed to prevent unsafe
+              reuse of disposable medical devices while surviving demanding
+              sterilization and manufacturing constraints.
             </p>
+            <a class="card-link" href="/projects/mechanical-use-limiter/">Engineering case study →</a>
+          </article>
+
+          <article class="card">
+            <span class="status">Working architecture</span>
+            <h3>Family Homelab</h3>
+            <p>
+              A local-first environment organized around recoverability,
+              controlled access, portable configuration, observable services,
+              and the reality that family infrastructure must quietly work.
+            </p>
+            <a class="card-link" href="/projects/homelab/">Architecture overview →</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="earlier-heading">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Earlier engineering</p>
+            <h2 id="earlier-heading">Physical products still count</h2>
+            <p>
+              Before moving fully into software, I worked across mechanical,
+              electrical, manufacturing, and product-development boundaries.
+            </p>
+          </div>
+        </div>
+        <div class="card-grid two-column">
+          <article class="card">
+            <span class="card-kicker">Patents</span>
+            <h3>Six issued U.S. patents</h3>
+            <p>
+              Medical-device use limiters and electrical connectors developed
+              through iterative product and manufacturing engineering.
+            </p>
+            <a class="card-link" href="/aaron/patents-and-engineering/">Patents and earlier engineering →</a>
+          </article>
+          <article class="card">
+            <span class="card-kicker">Professional practice</span>
+            <h3>Evaluating unfamiliar software</h3>
+            <p>
+              A repeatable approach for moving from delivered artifacts and
+              documentation to defensible findings about actual system behavior.
+            </p>
+            <a class="card-link" href="/writing/software-evaluation/">Read the methodology →</a>
           </article>
         </div>
       </section>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="A working overview of Aaron Fine's local-first family homelab architecture and its design principles."
+    >
+    <meta name="theme-color" content="#274f43">
+    <title>Family Homelab · Our Fine Family</title>
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+    <script src="/theme.js?v=20260724-2"></script>
+    <link rel="stylesheet" href="/styles.css?v=20260724-2">
+  </head>
+  <body>
+    <header class="site-shell site-header">
+      <a class="brand" href="/" aria-label="Our Fine Family home">
+        <span class="brand-mark" aria-hidden="true">OF</span>
+        <span>Our Fine Family</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="/aaron/">Aaron</a>
+        <a href="/projects/" aria-current="page">Projects</a>
+        <a href="/writing/">Writing</a>
+        <a href="/analysis/">Analysis</a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to dark mode">
+          <span class="theme-toggle-icon" aria-hidden="true"></span>
+          <span class="theme-toggle-label">Dark</span>
+        </button>
+      </nav>
+    </header>
+
+    <main class="site-shell">
+      <section class="page-intro compact">
+        <span class="status">Working architecture</span>
+        <p class="eyebrow">Family Homelab</p>
+        <h1>Local infrastructure designed around sovereignty, not novelty</h1>
+        <p class="lede">
+          A family-scale environment for storage, media, home automation,
+          identity, development, observability, energy management, and local
+          AI—organized around local control, portable data, and systems that can
+          be understood and recovered when something fails.
+        </p>
+      </section>
+
+      <div class="content-grid">
+        <article class="prose">
+          <h2>The operating requirement</h2>
+          <p>
+            A homelab can be a perpetual experiment. Family infrastructure
+            cannot. Media, photos, home automation, documents, credentials, and
+            remote access have users who reasonably expect them to work without
+            caring which container, host, or identity protocol makes that happen.
+          </p>
+          <p>
+            The architecture therefore favors a boring control path, explicit
+            ownership, portable data, and recoverable configuration. New tools
+            are useful only when they reduce a real operating burden or create a
+            capability worth maintaining.
+          </p>
+
+          <h2>Current architecture</h2>
+          <ul class="architecture-list">
+            <li>
+              <strong>Stable consolidation host</strong>
+              Unraid provides storage and the primary container runtime. A
+              separate firewall and an auxiliary Ubuntu host remain part of the
+              environment, but they are monitored as distinct systems rather
+              than allowed to become invisible dependencies.
+            </li>
+            <li>
+              <strong>Containerized home automation</strong>
+              Home Assistant, Zigbee, Z-Wave, and MQTT run as separable services.
+              Radio state, controller backups, security keys, and application
+              configuration are treated as distinct recovery concerns.
+            </li>
+            <li>
+              <strong>Private access boundary</strong>
+              pfSense provides the network boundary and HAProxy provides reverse
+              proxying. Services are not deliberately exposed to the public
+              internet; Tailscale supplies authenticated remote access.
+            </li>
+            <li>
+              <strong>Identity and credentials</strong>
+              Bitwarden holds human credentials. Centralized application
+              identity is deliberately deferred: the added operating and
+              recovery burden currently outweighs the benefit for this
+              private-access environment.
+            </li>
+            <li>
+              <strong>Observable services</strong>
+              Grafana dashboards cover host and container utilization, network
+              throughput, storage, temperatures, and household power flows.
+              Uptime Kuma provides service-level availability checks, while the
+              wider metrics and logging stack supports diagnosis across hosts.
+            </li>
+            <li>
+              <strong>Version-controlled configuration</strong>
+              A nightly, allowlisted sync mirrors live configuration into
+              private Gitea for readable change history and disaster recovery.
+              Secret-bearing values are encrypted with SOPS and age, and a
+              gitleaks scan blocks commits when it detects plaintext secrets.
+              Databases, media, photos, logs, caches, and runtime state remain
+              outside this configuration mirror.
+            </li>
+            <li>
+              <strong>Layered recovery</strong>
+              Kopia sends multiversion backups to Backblaze B2 for long-term
+              off-site retention and major disaster recovery. Backrest keeps a
+              smaller, short-retention local copy for a faster nearby recovery
+              path. Small sets of files have been restored manually from both
+              systems.
+            </li>
+          </ul>
+
+          <h2>What it currently supports</h2>
+          <p>
+            The environment runs dozens of containerized services across several
+            practical domains: media and photo management, home automation,
+            network services, local development, file synchronization, local AI,
+            monitoring, backup, and solar-and-energy integration. The point is
+            not the size of the application list. It is that these services share
+            infrastructure while retaining observable responsibilities and
+            recoverable state boundaries.
+          </p>
+
+          <h2>Design principles</h2>
+          <ul class="feature-list">
+            <li>
+              <strong>Portable roots</strong>
+              Data, recovery material, and configuration should outlive a
+              particular application or provider.
+            </li>
+            <li>
+              <strong>Controlled exposure</strong>
+              Remote access does not require turning every internal service into
+              a public web application.
+            </li>
+            <li>
+              <strong>Replaceable services</strong>
+              Containers and hosts should be reconstructable wherever practical;
+              durable state receives different treatment.
+            </li>
+            <li>
+              <strong>Operational honesty</strong>
+              A dashboard is not a backup, a scheduled job is not a verified
+              restore, and “self-hosted” does not automatically mean resilient.
+            </li>
+          </ul>
+
+          <h2>Configuration is not a backup</h2>
+          <p>
+            The configuration repository is intentionally a one-way mirror from
+            the live system. It preserves reviewable service definitions,
+            selected Home Assistant state, device and automation configuration,
+            container templates, and the scripts that perform the sync. It does
+            not try to turn databases or user data into Git content.
+          </p>
+          <p>
+            That boundary keeps three recovery tools distinct: Git explains how
+            services were configured, the local backup provides a short and
+            convenient recovery path, and the off-site archive protects durable
+            data across more serious failures. Encryption and secret scanning
+            make useful diffs possible without treating a private repository as
+            permission to store credentials in plaintext.
+          </p>
+
+          <h2>Lessons from consolidation</h2>
+          <p>
+            The most important architectural change was not adopting a new
+            platform. It was recognizing that a quiet, headless mini PC could
+            fail in ways that were easy to miss. It remains useful as auxiliary
+            compute, but should not be the sole scheduler or control point for
+            backups and family-critical services.
+          </p>
+          <p>
+            The Home Assistant migration reinforced a related lesson: a service
+            is not fully described by its container. Z-Wave network identity,
+            controller nonvolatile memory, security keys, device mappings,
+            broker state, and application configuration each have different
+            recovery requirements. A successful architecture makes those
+            boundaries explicit before the failure.
+          </p>
+
+          <h2>What is not finished</h2>
+          <p>
+            This is a working architecture, not a claim of completed operational
+            maturity. File-level restores from both backup paths have been
+            exercised, but broader restore drills and reconstruction timing still
+            need to be documented. Configuration coverage can expand where it
+            provides useful recovery value, and secret handling still needs
+            periodic review as new services are added. Existing dashboards make
+            system state visible, and ntfy carries remote alerts over Tailscale
+            without exposing an alerting service to the public internet.
+            Remaining maturity work includes broader recovery exercises,
+            reconstruction timing, and testing alert coverage end to end.
+          </p>
+        </article>
+
+        <aside class="sidebar">
+          <h2>System areas</h2>
+          <ul>
+            <li>Storage and containers</li>
+            <li>Network boundary and remote access</li>
+            <li>Identity and credentials</li>
+            <li>Home automation</li>
+            <li>Media and family services</li>
+            <li>Metrics, logs, and dashboards</li>
+            <li>Backup and off-site recovery</li>
+            <li>Local development and AI</li>
+          </ul>
+          <div class="sidebar-rule"></div>
+          <p class="sidebar-small">
+            Status language is deliberate: deployed capability, tested evidence,
+            and remaining work are described separately.
+          </p>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-shell footer-inner">
+        <p>A working architecture by Aaron Fine.</p>
+        <div class="footer-links">
+          <a href="/projects/">Projects</a>
+          <a href="/about/">Site boundaries</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
