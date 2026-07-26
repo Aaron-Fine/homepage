@@ -658,8 +658,12 @@ main {
 }
 
 .boundary-note {
+  align-self: start;
   margin: 0;
   padding: clamp(1.4rem, 3vw, 2rem);
+  border-width: 0 0 0 4px;
+  border-radius: 0 1rem 1rem 0;
+  border-left-color: var(--sage);
 }
 
 .boundary-note h3 {
