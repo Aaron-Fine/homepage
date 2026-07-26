@@ -35,12 +35,12 @@
       <section class="page-intro compact">
         <span class="status">Working architecture</span>
         <p class="eyebrow">Family Homelab</p>
-        <h1>Local infrastructure designed around recovery, not novelty</h1>
+        <h1>Local infrastructure designed around sovereignty, not novelty</h1>
         <p class="lede">
           A family-scale environment for storage, media, home automation,
           identity, development, observability, energy management, and local
-          AI—organized around systems that can be understood and recovered when
-          something fails.
+          AI—organized around local control, portable data, and systems that can
+          be understood and recovered when something fails.
         </p>
       </section>
 
@@ -191,19 +191,11 @@
             need to be documented. Configuration coverage can expand where it
             provides useful recovery value, and secret handling still needs
             periodic review as new services are added. Existing dashboards make
-            system state visible; the next maturity step is turning that
-            visibility into tested recovery procedures and useful alerts.
+            system state visible, and ntfy carries remote alerts over Tailscale
+            without exposing an alerting service to the public internet.
+            Remaining maturity work includes broader recovery exercises,
+            reconstruction timing, and testing alert coverage end to end.
           </p>
-
-          <div class="boundary">
-            <h3>Publication boundary</h3>
-            <p>
-              A future detailed version can show logical topology, service
-              responsibilities, backup classes, and representative configuration.
-              It will not publish private addresses, credentials, recovery
-              material, externally useful attack paths, or family data.
-            </p>
-          </div>
         </article>
 
         <aside class="sidebar">

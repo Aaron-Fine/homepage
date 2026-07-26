@@ -57,6 +57,12 @@
             preserving the distinction between what was delivered, what was
             documented, what was observed, and what was inferred.
           </p>
+          <p>
+            Those observations have meaning only in context. The system must be
+            judged against the mission it is intended to accomplish, the written
+            requirements that govern it, and the maturity expected at that point
+            in its lifecycle.
+          </p>
 
           <blockquote>
             The goal is not to prove that software is good or bad. It is to make
@@ -74,10 +80,14 @@
           </p>
           <p>
             I establish the evaluation boundary, representative workflows,
-            required environments, expected outputs, and the confidence needed
-            for the decision. I also record explicit exclusions. Without that
-            frame, teams tend to collect large quantities of technically
-            interesting information that never resolves the actual question.
+            applicable requirements, current and expected maturity, required
+            environments, expected outputs, and the confidence needed for the
+            decision. A limitation that is normal and manageable during early
+            development may be unacceptable when the same system is presented
+            for operational acceptance. I also record explicit exclusions.
+            Without that frame, teams tend to collect large quantities of
+            technically interesting information that never resolves the actual
+            question.
           </p>
 
           <h2>2. Establish provenance and inventory the delivery</h2>
@@ -148,8 +158,8 @@
             metrics, security scanners, and build warnings can efficiently
             identify areas that deserve attention. They are sensors, not
             verdicts. Tool findings must be interpreted in the context of the
-            language, architecture, mission, generated code, accepted risk, and
-            actual execution.
+            language, architecture, mission, written requirements, expected
+            maturity, generated code, accepted risk, and actual execution.
           </p>
           <p>
             I look for convergence. A warning becomes more meaningful when it
