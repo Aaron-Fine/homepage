@@ -70,15 +70,14 @@ public/
 │   └── morning-briefing/
 ├── writing/
 │   └── software-evaluation/
-├── analysis/
-│   └── framework/
 ├── assets/
 ├── styles.css
+├── theme.js
 ├── 404.html
 ├── _headers
 ├── robots.txt
 └── sitemap.xml
 ```
 
-There is intentionally no JavaScript or build system. Edit the HTML and CSS,
-commit, and push.
+There is intentionally no framework or build system. Edit the HTML, CSS, and
+small theme script, commit, and push.
