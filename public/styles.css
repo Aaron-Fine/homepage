@@ -156,16 +156,16 @@ h3 {
 }
 
 .brand-mark {
-  display: grid;
+  display: block;
   width: 2.4rem;
   height: 2.4rem;
-  place-items: center;
-  border-radius: 50%;
-  color: var(--paper);
-  background: var(--forest);
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 0.88rem;
-  letter-spacing: 0.04em;
+  flex: 0 0 2.4rem;
+  overflow: hidden;
+  border-radius: 0.65rem;
+  color: transparent;
+  background: url("/assets/favicon.svg") center / contain no-repeat;
+  box-shadow: 0 0 0 1px var(--line);
+  font-size: 0;
 }
 
 .site-nav {

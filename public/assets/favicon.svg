@@ -1,7 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="OF">
-  <rect width="64" height="64" rx="32" fill="#274f43"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Interlocked double F mark">
+  <rect x="2" y="2" width="60" height="60" rx="17" fill="#274f43"/>
   <path
-    fill="#f5f1e8"
-    d="M17 32c0-8.1 4.3-13.2 11-13.2S39 23.9 39 32s-4.3 13.2-11 13.2S17 40.1 17 32Zm6.1 0c0 5.3 1.8 8 4.9 8s4.9-2.7 4.9-8-1.8-8-4.9-8-4.9 2.7-4.9 8Zm19.1-12.7h15v5.2h-9v5.6h7.8v5.1h-7.8v9.5h-6V19.3Z"
+    d="M16 48V17H35M16 29H31M48 16V47H29M48 35H33"
+    fill="none"
+    stroke="#f5f1e8"
+    stroke-width="7"
+    stroke-linecap="round"
+    stroke-linejoin="round"
   />
+  <circle cx="32" cy="32" r="5" fill="#c47b35"/>
 </svg>
